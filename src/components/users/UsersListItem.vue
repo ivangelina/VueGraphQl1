@@ -42,6 +42,7 @@
           this.$store.commit(mutations.SET_SELECTED_USER, 
           currentUser);
       },
+      
       viewUserDetails(){
         this.$router.push({
           path: 'games',
