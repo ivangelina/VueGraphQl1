@@ -56,7 +56,7 @@
     },
     methods: {
       getUsers() {
-          console.log('query get users')
+        this.$store.dispatch(actions.GET_USERS_LIST);
       },
       deleteUser() {
           console.log(this.$store.state.currentUser);

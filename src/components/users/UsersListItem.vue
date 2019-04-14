@@ -12,7 +12,7 @@
           <i class="fa fa-bar-chart mx-2" aria-hidden="true"></i>
           View Details
         </span>
-        <span class="remove-item"
+        <span class="remove-item ml-3"
               @click="setSelectedUser"
               v-b-modal.modalDeleteUser>
           <i class="fa fa-times" aria-hidden="true"></i>
@@ -51,7 +51,7 @@
 <style scoped>
 
   .view-user {
-    border-radius: 50%;
+    border-radius: 5px;
     background-color: #2b994f;
     font-size: 14px;
     border: 1px solid #217f3b;

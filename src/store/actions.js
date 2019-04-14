@@ -11,9 +11,39 @@ export default {
         graphQlService.getUsersList(
             params,
             (response) => {
+                commit(mutations.SET_LOADER, false);
+                commit(mutations.SET_USERS_LIST, response.data.users);
+            },
+            (error) => {
+                commit(mutations.SET_LOADER, false);
+                console.log(error);
+            }
+        )
+    },
+    [actions.ADD_USER]({commit}, params){
+        commit(mutations.SET_LOADER, true);
+        graphQlService.addUser(
+            params,
+            (response) => {
+                commit(mutations.SET_LOADER, false);
+                commit(mutations.ADD_USER, response.data.addUser);
+            },
+            (error) => {
+                commit(mutations.SET_LOADER, false);
+                console.log(error);
+            }
+        )
+    },
+    [actions.DELETE_USER]({commit}, params){
+        commit(mutations.SET_LOADER, true);
+        graphQlService.deleteUser(
+            params,
+            (response) => {
+                commit(mutations.SET_LOADER, false);
                 console.log(response);
             },
             (error) => {
+                commit(mutations.SET_LOADER, false);
                 console.log(error);
             }
         )

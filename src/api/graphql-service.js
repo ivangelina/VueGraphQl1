@@ -22,5 +22,46 @@ export default {
         } catch (error){
             failure(error);    
         }
+    },
+
+    async addUser(variables, success, failure){
+        try {
+            const response = await graphqlClient.mutate({
+                mutation: gql`mutation($username: String!,
+                     $email: String!, $password: String!){
+                    addUser(username: $username, 
+                        email: $email, password: $password){
+                        _id
+                        username
+                        email
+                    }    
+                }`,
+                variables,
+            });
+            success(response);
+
+        } catch (error){
+            failure(error);
+        }
+    },
+
+    async deleteUser(_id, success, failure){
+        try {
+            const response = graphqlClient.mutate({
+                mutation: gql`
+                mutation($_id: String!){
+                    deleteUser(_id: $_id){
+                        _id
+                    }
+                }
+                `,
+                variables: {
+                    _id
+                }
+            });
+            success(response);
+        } catch (error) {
+            failure(error);
+        }
     }
 }

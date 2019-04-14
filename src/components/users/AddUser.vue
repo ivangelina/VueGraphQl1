@@ -41,8 +41,14 @@
     },
     methods: {
       addUser() {
-          //TODO
-        console.log(this.username, this.email, this.password);
+
+          const user = {
+            username: this.username,
+            email: this.email,
+            password: this.password
+          }
+          
+          this.$store.dispatch(actions.ADD_USER, user);
 
       },
     }
