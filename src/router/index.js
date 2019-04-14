@@ -4,7 +4,7 @@ import Navigation from '../components/navigation/Navigation';
 import Users from '../components/users/Users';
 import Games from '../components/games/Games';
 import Footer from '../components/footer/Footer';
-
+import UserDetails from '../components/userdetails/UserDetails';
 Vue.use(Router);
 
 export default new Router({
@@ -23,17 +23,9 @@ export default new Router({
       name: 'User',
       components: {
         navigation: Navigation,
+        default: UserDetails,
         footer: Footer,
       },
-    },
-    {
-      path: '/games',
-      name: 'Games',
-      components: {
-        navigation: Navigation,
-        default: Games,
-        footer: Footer,
-      }
     }
   ],
 });

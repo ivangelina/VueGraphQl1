@@ -42,14 +42,12 @@
           this.$store.commit(mutations.SET_SELECTED_USER, 
           currentUser);
       },
-      
+
       viewUserDetails(){
-        this.$router.push({
-          path: 'games',
-          query: {
-            id: this._id
-          }
-        })
+        this.$router.push({ 
+          name: 'User', 
+          params: { id: this._id} 
+        });
       }
     },
   };
