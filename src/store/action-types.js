@@ -1,3 +1,7 @@
 export default {
-
+    GET_USERS_LIST: 'GET_USERS_LIST',
+    GET_USER_BY_ID: 'GET_USER_BY_ID',
+    ADD_USER: 'ADD_USER',
+    EDIT_USER: 'EDIT_USER',
+    DELETE_USER: 'DELETE_USER',
 };
