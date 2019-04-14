@@ -1,5 +1,4 @@
 export default {
-  getMovieById: state => id =>
-    state.movies.find(movie => movie.id === id),
-
+  getUserIndex: (usersList, _id) =>
+    usersList.findIndex(user => user._id === _id)
 };

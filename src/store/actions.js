@@ -34,13 +34,16 @@ export default {
             }
         )
     },
-    [actions.DELETE_USER]({commit}, params){
+    [actions.DELETE_USER]({commit, state}, params){
         commit(mutations.SET_LOADER, true);
         graphQlService.deleteUser(
             params,
             (response) => {
                 commit(mutations.SET_LOADER, false);
-                console.log(response);
+                const _id = response.data.deleteUser._id;
+                const removeIndex = 
+                getters.getUserIndex(state.usersList, _id);
+                commit(mutations.DELETE_USER, removeIndex);
             },
             (error) => {
                 commit(mutations.SET_LOADER, false);

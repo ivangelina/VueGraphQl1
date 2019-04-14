@@ -59,7 +59,8 @@
         this.$store.dispatch(actions.GET_USERS_LIST);
       },
       deleteUser() {
-          console.log(this.$store.state.currentUser);
+          const _id = this.$store.state.selectedUser._id;
+          this.$store.dispatch(actions.DELETE_USER, _id);
       },
     },
   };

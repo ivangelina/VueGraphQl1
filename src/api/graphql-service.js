@@ -47,7 +47,7 @@ export default {
 
     async deleteUser(_id, success, failure){
         try {
-            const response = graphqlClient.mutate({
+            const response = await graphqlClient.mutate({
                 mutation: gql`
                 mutation($_id: String!){
                     deleteUser(_id: $_id){

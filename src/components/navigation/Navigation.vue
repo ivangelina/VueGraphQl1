@@ -5,6 +5,7 @@
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
           <b-nav-item to="/">Потребители</b-nav-item>
+          <b-nav-item to="/games">Игри</b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
         </b-navbar-nav>

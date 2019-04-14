@@ -39,10 +39,16 @@
               username: this.username,
               email: this.email
           };
-          console.log(currentUser);
+          this.$store.commit(mutations.SET_SELECTED_USER, 
+          currentUser);
       },
       viewUserDetails(){
-        console.log(this.id);
+        this.$router.push({
+          path: 'games',
+          query: {
+            id: this._id
+          }
+        })
       }
     },
   };
