@@ -50,7 +50,21 @@ export default {
                 console.log(error);
             }
         )
-    }
+    },
+
+    [actions.GET_GAMES_LIST]({commit}, params= "_id name description image") {
+        commit(mutations.SET_LOADER, true);
+        graphQlService.getGamesList(
+            params,
+            (response) => {
+                commit(mutations.SET_LOADER, false);
+                commit(mutations.SET_GAMES_LIST, response.data.games);
+            },
+            (error) => {
+                commit(mutations.SET_LOADER, false);
+            }
+        )
+    },
 
 
 };

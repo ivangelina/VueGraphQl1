@@ -9,6 +9,8 @@ Vue.use(Vuex);
 const state = {
   isLoading: false,
   usersList: [],
+  gamesList: [],
+  userSelectedGames: [],
   selectedUser: {
     _id: '',
     username: '',

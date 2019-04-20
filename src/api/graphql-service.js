@@ -63,5 +63,21 @@ export default {
         } catch (error) {
             failure(error);
         }
-    }
+    },
+    async getGamesList(params, success, failure) {
+        try {
+            const response = await graphqlClient.query({
+                query: gql`
+                    query {
+                        games {
+                            ${params}
+                        }
+                    }
+                `
+            });
+            success(response);
+        } catch (error){
+            failure(error);    
+        }
+    },
 }

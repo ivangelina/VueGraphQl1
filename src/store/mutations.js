@@ -18,5 +18,12 @@ export default {
   },
   [mutations.DELETE_USER](state, index){
     state.usersList.splice(index, 1);
-  }
+  },
+  [mutations.SET_GAMES_LIST](state, gamesList) {
+    state.gamesList = gamesList;
+  },
+  [mutations.SET_USER_GAMES](state, gamesSelected) {
+    state.userSelectedGames = gamesSelected;
+  },
+
 };
