@@ -44,6 +44,7 @@
       },
 
       viewUserDetails(){
+        this.setSelectedUser();
         this.$router.push({ 
           name: 'User', 
           params: { id: this._id} 

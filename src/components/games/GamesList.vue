@@ -27,7 +27,25 @@
     },
     watch: {
       selected: function(val){
-        this.$store.commit(mutations.SET_USER_GAMES, val);
+        let selectedGames = [];
+
+        for(let i = 0; i < val.length; i++){
+          const matchedGame = this.$store.state.gamesList.filter(game => {
+            return game._id == val[i]
+          })
+
+          const gameToAdd = matchedGame.map(game => {
+            return {
+              _id: game._id,
+              name: game.name,
+              description: game.description,
+              image: game.image
+            }
+          })
+          selectedGames.push(gameToAdd[0])
+        }
+
+        this.$store.commit(mutations.SET_USER_GAMES, selectedGames);
       }
     },
     computed: {

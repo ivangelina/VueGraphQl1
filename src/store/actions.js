@@ -6,7 +6,7 @@ import getters from './getters';
 
 export default {
 
-    [actions.GET_USERS_LIST]({commit}, params= "_id username email") {
+    [actions.GET_USERS_LIST]({commit}, params= "_id username email games {_id}") {
         commit(mutations.SET_LOADER, true);
         graphQlService.getUsersList(
             params,
@@ -65,6 +65,19 @@ export default {
             }
         )
     },
-
+    [actions.SAVE_USER]({commit, state}, params){
+        commit(mutations.SET_LOADER, true);
+        graphQlService.saveUser(
+            params,
+            (response) => {
+                commit(mutations.SET_LOADER, false);
+                
+            },
+            (error) => {
+                commit(mutations.SET_LOADER, false);
+                console.log(error);
+            }
+        )
+    },
 
 };

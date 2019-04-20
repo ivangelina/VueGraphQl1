@@ -13,7 +13,7 @@
                       >
                         <b-form-input
                           id="input-1"
-                          v-model="form.email"
+                          v-model="getCurrentUser.email"
                           type="email"
                           placeholder="Enter email"
                         ></b-form-input>
@@ -22,7 +22,7 @@
                       <b-form-group id="input-group-2" label="Username: " label-for="input-2">
                         <b-form-input
                           id="input-2"
-                          v-model="form.username"
+                          v-model="getCurrentUser.username"
                           placeholder="Enter name"
                         ></b-form-input>
                       </b-form-group>
@@ -30,7 +30,7 @@
                             label="Password: " label-for="input-3">
                         <b-form-input
                           id="input-3"
-                          v-model="form.password"
+                          v-model="getCurrentUser.password"
                           placeholder="Enter password"
                         ></b-form-input>
                       </b-form-group>
@@ -45,6 +45,7 @@
 </template>
 <script>
 
+import actions from '../../store/action-types';
 
 import StGamesList from "../games/GamesList";
   export default {
@@ -52,19 +53,20 @@ import StGamesList from "../games/GamesList";
     components: {
       StGamesList
     },
-    data() {
-        return {
-            form: {
-            email: '',
-            username: '',
-            password: '',
-            }
-        }
+    computed: {
+      getCurrentUser() {
+        return this.$store.state.selectedUser;
+      }
     },
     methods: {
       onSave(evt) {
         console.log('save');
+        let selectedUser = this.$store.state.selectedUser;
+        selectedUser.games = this.$store.state.userSelectedGames; 
+        this.$store.dispatch(actions.SAVE_USER, selectedUser);
+
         console.log(this.$store.state.userSelectedGames)
+
       },
     },
   };

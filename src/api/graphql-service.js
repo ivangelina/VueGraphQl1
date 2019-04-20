@@ -80,4 +80,23 @@ export default {
             failure(error);    
         }
     },
+    async saveUser(variables, success, failure) {
+        try {
+            const response = await graphqlClient.mutate({
+                mutation: gql`
+                mutation($_id: String!, $username: String!, $email: String!,
+                     $password: String!, $games: [GameInput]){
+                    editUser(_id: $_id, username: $username, email: $email, 
+                        password: $password, games: $games){
+                        _id
+                    }
+                }
+                `,
+                variables
+            });
+            success(response);
+        } catch (error){
+            failure(error);    
+        }
+    },
 }

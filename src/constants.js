@@ -2,5 +2,5 @@
  * A file with all global constants
  */
 export default {
-  graphql: 'http://localhost:3000/graphql',
+  graphql: 'https://graphqlmaster.herokuapp.com/graphql',
 };
