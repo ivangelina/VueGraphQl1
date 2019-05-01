@@ -7,7 +7,7 @@
           <b-nav-item to="/"></b-nav-item>
           <b-nav-item to="/games"></b-nav-item>
            <b-nav-item to="/">Обекти</b-nav-item>
-           <b-nav-item to="/">Ценова листа</b-nav-item>
+           <b-nav-item to="/price">Ценова листа</b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
         </b-navbar-nav>
