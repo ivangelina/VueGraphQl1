@@ -58,3 +58,17 @@
     }
   }
 </script>
+
+<style>
+
+  .view-price {
+    border-radius: 50px;
+    background-color: #2aee8c;
+    font-size: 14px;
+    border: 5px solid #217f3b;
+    color: #217f3b;
+    cursor: pointer;
+  }
+
+</style>
+
