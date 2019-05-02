@@ -45,13 +45,7 @@
         items: [
           { isActive: true, price: 120000, objectname: 'Апартамент №1', title: 'house' },
           { isActive: false, price: 80000, objectname: 'Магазин №1', title: 'store' },
-          {
-            isActive: false,
-            price: 100000,
-            objectname: 'Апартамент №2',
-            title: 'house',
-            _showDetails: true
-          },
+          { isActive: true, price: 100000,objectname: 'Апартамент №2',title: 'house' },
           { isActive: true, price: 65000, objectname: 'Офис', title: 'office' }
         ]
       }
